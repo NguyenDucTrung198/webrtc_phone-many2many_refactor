@@ -1,0 +1,23 @@
+{
+	"name": "static",
+	"authors": [
+		"hathaithanh@vn4.sateraito.co.jp"
+	],
+	"description": "",
+	"main": "",
+	"license": "MIT",
+	"homepage": "",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"socket.io-client": "2.0.3",
+		"adapter.js": "v0.2.9",
+		"kurento-utils": "master",
+		"remarkable-bootstrap-notify": "v3.1.3"
+	}
+}

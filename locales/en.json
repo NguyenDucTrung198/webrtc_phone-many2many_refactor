@@ -1,0 +1,15 @@
+{
+	"Missing params": "Missing params",
+    "This account has already existed.": "This account has already existed.",
+    "There was an error creating the account, please try again.": "There was an error creating the account, please try again.",
+    "Username does not exist.": "Username does not exist.",
+    "Incorrect password.": "Incorrect password.",
+    "Login failed, please try again.": "Login failed, please try again.",
+    "Logged in successfully.": "Logged in successfully.",
+    "Cannot find access token.": "Cannot find access token.",
+    "No refresh token found.": "No refresh token found.",
+    "Invalid Access token.": "Invalid Access token.",
+    "Invalid token refresh.": "Invalid token refresh.",
+    "Access token creation failed, please try again.": "Access token creation failed, please try again.",
+    "Missed call": "不在着信"
+}

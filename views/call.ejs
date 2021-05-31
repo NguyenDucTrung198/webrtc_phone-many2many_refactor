@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include('partials/head'); -%>
+		<script src="js/call.js"></script>
+	</head>
+	<body class="bg-light">
+		<header>
+			<%- include('partials/header'); -%>
+		</header>
+		<main class="container">
+			<div id="my-signin2" class="g-signin2" data-onsuccess="onSuccess" data-onfailure="onfailure" style="display: none;"></div>
+            <div class="container-call my-3 p-3 bg-white rounded box-shadow">
+				<div class="alert alert-danger danger-setting" style="display: none;">
+					<strong class="alert-danger-txt">発信元と発信先を設定してください。</strong>
+				</div>
+				<form>
+					<div class="form-group text-left">
+						<label for="peer">発信先</label>
+						<input type="text" class="form-control" id="peer" placeholder="" autocomplete="off">
+						<small id="peerInValid" class="validate form-text text-danger" style="display: none;">必須項目です。</small>
+					</div>
+					<div class="form-group text-left">
+						<label for="title-call">タイトル</label>
+						<input type="text" class="form-control" id="title-call" placeholder="" autocomplete="off">
+					</div>
+				</form>
+                <button type="button" class="btn btn-primary" id="btn-call">発信</button>
+            </div>
+		</main>
+	</body>
+</html>

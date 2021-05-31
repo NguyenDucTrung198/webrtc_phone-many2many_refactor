@@ -1,0 +1,164 @@
+@media only screen and (max-width: 900px) {
+    .participant.main {
+        width: 100%;
+    }
+
+    .participant.main video {
+        max-width: 96%;
+        margin: 2%;
+    }
+
+    /* .participant.main:before {
+        right: 0px;
+        left: 0px;
+        top: 0px;
+        bottom: 0px;
+    } */
+
+    /* .content-setting {
+        width: 75%;
+    } */
+
+    .participant.main {
+        padding: 0;
+    }
+
+    .log-item-content {
+        margin-top: 15px;
+    }
+
+    .date-time-start {
+        bottom: -12px;
+        background-color: antiquewhite;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .item-fv {
+        width: 92%;
+    }
+    .item-favorite-content {
+        bottom: 10px;
+}
+}
+
+@media only screen and (max-width: 540px) {
+    .item-fv {
+        width: 89%;
+    }
+}
+
+
+@media only screen and (max-width: 450px) {
+    .item-name-caller {
+        width: 87%;
+    }
+
+    .log-item-content {
+        margin-top: 15px;
+    }
+
+    .date-time-start {
+        bottom: -12px;
+        background-color: antiquewhite;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .content-setting {
+        width: 307px;
+    }
+    .item-name-caller {
+        width: 83%;
+    }
+
+    .log-item-content {
+        margin-top: 15px;
+    }
+
+    .date-time-start {
+        bottom: -12px;
+        background-color: antiquewhite;
+    }
+    .col-xs-11.col-sm-4.alert.alert-warning.animated.fadeInDown,.col-xs-11.col-sm-4.alert.alert-info.animated.fadeInDown {
+        right: 0px !important;
+    }
+
+    .caller-name {
+        width: 78%;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .caller-name {
+        width: 76%;
+    }
+    .item-fv {
+        width: 84%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+
+    .item-fv {
+        width: 83%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .caller-name {
+        width: 75%;
+    }
+    .item-fv {
+        width: 82%;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .content-setting {
+        width: 300px;
+    }
+    .item-name-caller {
+        width: 80%;
+    }
+
+    .caller-name {
+        width: 60%;
+    }
+
+    .log-item-content {
+        margin-top: 15px;
+    }
+
+    .date-time-start {
+        bottom: -12px;
+        background-color: antiquewhite;
+    }
+
+    .item-fv {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .item-name-caller {
+        width: 77%;
+    }
+
+    .log-item-content {
+        margin-top: 15px;
+    }
+
+    .date-time-start {
+        bottom: -12px;
+        background-color: antiquewhite;
+    }
+
+    .caller-name {
+        width: 63%;
+    }
+
+    .item-fv {
+        width: 76%;
+    }
+}

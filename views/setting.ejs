@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include('partials/head'); -%>
+		<script src="js/settings.js"></script>
+	</head>
+	<body class="bg-light">
+		<header>
+			<%- include('partials/header'); -%>
+		</header>
+		<main class="container">
+			<div class="my-3 p-3 bg-white rounded box-shadow">
+				<form>
+					<h1 class="title-form">設定</h1>
+					<div class="alert alert-success" style="display: none;">
+						<strong>入力データを保存しました。</strong>
+					</div>
+					<!-- <div class="form-group">
+						<label for="name">Login by google</label>
+						<div id="my-signin2" class="g-signin2" data-onsuccess="onSuccess" data-onfailure="onfailure"></div>
+						<div class="form-row">
+							<button id="my-logout2" type="button" class="btn btn-primary btn-sm" href="#" onclick="signOut();" style="display: none;">Sign out</button>
+						</div>
+					</div> -->
+					<div class="form-group">
+						<label for="name"><b>発信元</b></label>
+						<input type="text" class="form-control" id="name" placeholder="" required>
+						<small id="nameInValid" class="validate form-text text-danger" style="display: none;">必須項目です。</small>
+					</div>
+					<div class="form-row">
+						<div class="form-group row col-md-6">
+							<label class="col-sm-3 col-form-label"><input type="radio" name="audio_ringing" value="1" checked> 着信音01</label>
+							<div class="col-sm-8">
+								<audio controls class="setting-audio">
+									<source src="/audio/Telephone-Ringtone-1.mp3" type="audio/mpeg">
+								  Your browser does not support the audio element.
+								</audio>
+							</div>
+						</div>
+						<div class="form-group row col-md-6">
+							<label class="col-sm-3 col-form-label"><input type="radio" name="audio_ringing" value="2"> 着信音02</label>
+							<div class="col-sm-8">
+								<audio controls class="setting-audio">
+									<source src="/audio/Telephone-Ringtone-2.mp3" type="audio/mpeg">
+								  Your browser does not support the audio element.
+								</audio>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group row col-md-6">
+							<label class="col-sm-3 col-form-label"><input type="radio" name="audio_ringing" value="3"> 着信音03</label>
+							<div class="col-sm-8">
+								<audio controls class="setting-audio">
+									<source src="/audio/Telephone-Ringtone-3.mp3" type="audio/mpeg">
+								  Your browser does not support the audio element.
+								</audio>
+							</div>
+						</div>
+						<div class="form-group row col-md-6">
+							<label class="col-sm-3 col-form-label"><input type="radio" name="audio_ringing" value="4"> 着信音04</label>
+							<div class="col-sm-8">
+								<audio controls class="setting-audio">
+									<source src="/audio/Telephone-Ringtone-4.mp3" type="audio/mpeg">
+								  Your browser does not support the audio element.
+								</audio>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group row col-md-6">
+							<label class="col-sm-3 col-form-label"><input type="radio" name="audio_ringing" value="5"> 着信音05</label>
+							<div class="col-sm-8">
+								<audio controls class="setting-audio">
+									<source src="/audio/Telephone-Ringtone-5.mp3" type="audio/mpeg">
+								  Your browser does not support the audio element.
+								</audio>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="name"><b>電話制限</b></label>
+						<div class="row col-md-12">
+							<div class="form-group row col-md-4">
+								<label class="col-form-label"><input type="checkbox" id="call_same_domain"> 外部に電話ができる</label>
+							</div>
+							<div class="form-group row col-md-4">
+								<label class="col-form-label"><input type="checkbox" id="receive_not_same_domain"> 外部から電話を受ける</label>
+							</div>
+							<div class="form-group row col-md-4">
+								<label class="col-form-label"><input type="checkbox" id="reject_not_login"> 未認証ユーザーは受付ない</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group form-button">
+						<button type="button" class="btn btn-primary col-md-9" id="save-settings">保存</button>
+					</div>
+					<div class="form-group form-button">
+						<div id="my-signin2" class="g-signin2 col-md-9" data-onsuccess="onSuccess" data-onfailure="onfailure" data-longtitle="true"></div>
+						<button id="my-logout2" type="button" class="btn btn-danger col-md-9" href="#" onclick="signOut();" style="display: none;">サインアウト</button>
+					</div>
+				</form>
+			</div>
+		</main>
+	</body>
+</html>

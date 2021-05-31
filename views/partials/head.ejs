@@ -1,0 +1,102 @@
+<!-- views/partials/head.ejs -->
+<meta charset="UTF-8">
+<!-- <title>Group Call</title> -->
+
+<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id" content="363873867892-ifqmjj0b7vrmtttpbspi8p3dj691qgc8.apps.googleusercontent.com">
+	<title>Sateraito - Phone call</title>
+	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="./bower_components/socket.io-client/dist/socket.io.js"></script>
+    <script src="./bower_components/adapter.js/adapter.js"></script>
+    <script src="./bower_components/kurento-utils/js/kurento-utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alfg/ping.js@0.2.2/dist/ping.min.js" type="text/javascript"></script>
+    <script src="./bower_components/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js"></script>
+    <script src="js/common.js"></script>
+    <!-- <script src="./js/home.js"></script> -->
+    <script src="./js/participants.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    
+    <!-- <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script> -->
+<script>
+	function onSuccess(googleUser) {
+		let email = googleUser.getBasicProfile().getEmail();
+		console.log('Logged in as: ' + googleUser.getBasicProfile().getEmail());
+		$("#my-signin2").hide();
+		$("#my-logout2").show();
+		$("#name").val(email);
+		$("#name").attr("disabled", true);
+		let currentName = sessionStorage.getItem("name");
+		if (currentName !=  email) {
+			$("#save-settings").click();
+		}
+		let message = {
+			id : 'hasLogin',
+			data : {
+				"email": email
+			}
+		}
+		sendMessage(message);
+	}
+	function onFailure(error) {
+		let message = {
+			id : 'hasLogin',
+			data : {}
+		}
+		sendMessage(message);
+		console.log(error);
+	}
+
+	// promise that would be resolved when gapi would be loaded
+	var gapiPromise = (function(){
+		var deferred = $.Deferred();
+		window.renderButton = function(){
+			deferred.resolve(gapi);
+		};
+		return deferred.promise()
+	}());
+
+	var authInited = gapiPromise.then(function(gapi){
+		gapi.load('auth2', function() {
+			
+			auth2 = gapi.auth2.init({
+				client_id: '363873867892-ifqmjj0b7vrmtttpbspi8p3dj691qgc8.apps.googleusercontent.com'
+			});
+		})
+	})
+
+	gapiPromise.then(function(gapi){
+		
+	});
+
+	authInited.then(function(){
+	});
+	function signOut() {
+		var auth2 = gapi.auth2.getAuthInstance();
+		auth2.signOut().then(function () {
+			let message = {
+				id : 'hasLogin',
+				data : {}
+			}
+			sendMessage(message);
+			$("#my-signin2").show();
+			$("#my-logout2").hide();
+			$("#name").attr("disabled", false);
+			console.log('User signed out.');
+		});
+	}
+</script>
+<style>
+    
+</style>
