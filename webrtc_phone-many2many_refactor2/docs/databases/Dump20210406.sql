@@ -1,6 +1,6 @@
 -- MySQL dump 10.17  Distrib 10.3.25-MariaDB, for debian-linux-gnu (x86_64)
 --
--- Host: localhost    Database: receptionist_call
+-- Host: localhost    Database: receptionist_call2
 -- ------------------------------------------------------
 -- Server version	10.3.25-MariaDB-0ubuntu0.20.04.1
 
