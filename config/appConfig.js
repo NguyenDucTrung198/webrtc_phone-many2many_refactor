@@ -14,9 +14,9 @@ module.exports = {
 		timeoutCalling: process.env.TIMEOUT_CALLING || 30000
 	},
 	db: {
-		port: process.env.DB_PORT || 5432,
+		port: process.env.DB_PORT || 3306,
 		database: process.env.DB_NAME || 'sateraito',
-		password: process.env.DB_PASS || '123456',
+		password: process.env.DB_PASS || '',
 		username: process.env.DB_USER || 'root',
 		host: process.env.DB_HOST || '127.0.0.1'
 	},
