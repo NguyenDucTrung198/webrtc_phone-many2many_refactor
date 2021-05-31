@@ -1,0 +1,213 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <!-- <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a> -->
+            <a class="nav-item nav-link" href="/call">発信</a>
+            <a class="nav-item nav-link" href="/logs">履歴</a>
+            <a class="nav-item nav-link" href="/favorite">アドレス帳・お気に入り</a>
+            <a class="nav-item nav-link" href="/setting">設定</a>
+        </div>
+        <div class="col-md-7" style="display: none;">
+            <div id="videoBig">
+              <video id="videoOutput" autoplay width="0px" height="0px" poster="img/webrtc.png"></video>
+            </div>
+            <div id="videoSmall">
+              <video id="videoInput" autoplay width="0px" height="0px" poster="img/webrtc.png"></video>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="room-current">
+   
+</div>
+<!-- Modal answer call-->
+<div class="modal fade" id="CallModalCenter" tabindex="-1" role="dialog" aria-labelledby="" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-call" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">着信中</h5>
+                <small class="form-text text-info titleCall" style="display: none;"></small>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button> -->
+            </div>
+            <div class="modal-body">
+                <!-- <img class="img-default-profile" src="img/blank-profile-picture-circle-clipart.png"/> -->
+                <h6 class="name-peer"></h6>
+                <div class="count-time" style="display: none;">
+                    <label class="minutes">00</label>:<label class="seconds">00</label>
+                </div>
+                <div class="group-spinner">
+                    <div class="spinner-grow" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer modal-call-footer">
+                <img src="/img/button-ignore.png" class="decline-call">
+                <img src="/img/button-answer.png" class="answer-call">
+                <img src="/img/unmute-1.png" class="mute-call" style="display: none;">
+                <img src="/img/mute-1.png" class="unmute-call" style="display: none;">
+                <!-- <button type="button" class="btn btn-danger decline-call" data-dismiss="modal">拒否</button>
+                <button type="button" class="btn btn-success answer-call">応答</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="CallOutModal" tabindex="-1" role="dialog" aria-labelledby="" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-call" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">発信中</h5>
+                <small class="form-text text-info titleCall" style="display: none;"></small>
+                <small class="form-text text-danger participantNotCallOtherDomain" style="display: none;">外部に電話ができません。</small>
+                <small class="form-text text-danger participantNotReceiveOtherDomain" style="display: none;">相手は外部から電話を受けません。</small>
+                <small class="form-text text-warning dataParticipantNotReceiveOtherDomain dataRejectSetting" style="display: none;"></small>
+                <small class="form-text text-danger participantCancelByNotLogin" style="display: none;" >相手は未承認ユーザーから電話を受けません。</small>
+                <small class="form-text text-warning dataParticipantCancelByNotLogin dataRejectSetting" style="display: none;"></small>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button> -->
+            </div>
+            <div class="modal-body">
+                <!-- <img class="img-default-profile" src="img/blank-profile-picture-circle-clipart.png"/> -->
+                <h6 class="name-peer"></h6>
+                <div class="count-time" style="display: none;">
+                    <label class="minutes">00</label>:<label class="seconds">00</label>
+                </div>
+                <div class="group-spinner">
+                    <div class="spinner-grow" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div class="error" style="display: none;">
+                    <p class="text-error"></p>
+                </div>
+            </div>
+            <div class="modal-footer modal-call-footer">
+                <!-- <button type="button" class="btn btn-danger decline-call" data-dismiss="modal">終了</button> -->
+                <img src="/img/button-ignore.png" class="decline-call">
+                <img src="/img/unmute-1.png" class="mute-call" >
+                <img src="/img/mute-1.png" class="unmute-call" style="display: none;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="CallModalInfo" tabindex="-1" role="dialog" aria-labelledby="" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-confirm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+				<div class="icon-box">
+					<i class="material-icons"></i>
+				</div>				
+				<h4 class="modal-title"></h4>	
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
+			</div>
+            <div class="modal-body">
+				<p class="modal-confirm-message"></p>
+			</div>
+            <div class="modal-footer">
+				<button type="button" class="btn btn-info" data-dismiss="modal">キャンセル</button>
+				<!-- <button type="button" class="btn btn-danger">Delete</button> -->
+			</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalReasonReject" tabindex="-1" role="dialog" aria-labelledby="" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-reason-reject" role="document">
+        <div class="modal-content">
+            <div class="modal-header">			
+				<h4 class="modal-title">拒否理由</h4>	
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
+			</div>
+            <div class="modal-body">
+				<div class="form-check">
+                    <input class="form-check-input" type="radio" value="1" name="reasonreject" checked>
+                    <label class="form-check-label" for="reason1">ミーティング中です。</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="2" name="reasonreject">
+                    <label class="form-check-label" for="reason1">電話中です。</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="3" name="reasonreject">
+                    <label class="form-check-label" for="reason1">折り返し電話します。</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="4" name="reasonreject">
+                    <label class="form-check-label" for="reason1">後で電話ください。</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="5" name="reasonreject">
+                    <label class="form-check-label" for="defaultCheck2">
+                        その他
+                    </label>
+                </div>
+                <div class="form-check div-other-reason" style="display: none;">
+                    <textarea class="form-control other-reason"></textarea>
+                    <small class="validate form-text text-danger other-reason-required">必須項目です。</small>
+                </div>
+			</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info button-save" data-dismiss="modal">送信</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+			</div>
+        </div>
+    </div>
+</div>
+<audio id="audioRinging" loop="true">
+    <source src="audio/iphone_ringing_tone.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="audioBusy">
+    <source src="audio/phone-busy.wav" type="audio/wav">
+</audio>
+
+<audio id="audioCalling" loop="true">
+    <source src="audio/phone-calling.wav" type="audio/wav">
+</audio>
+
+<audio id="telephoneRingtone1" loop="true">
+    <source src="audio/Telephone-Ringtone-1.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="telephoneRingtone2" loop="true">
+    <source src="audio/Telephone-Ringtone-2.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="telephoneRingtone3" loop="true">
+    <source src="audio/Telephone-Ringtone-3.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="telephoneRingtone4" loop="true">
+    <source src="audio/Telephone-Ringtone-4.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="telephoneRingtone5" loop="true">
+    <source src="audio/Telephone-Ringtone-5.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="audioHangup">
+    <source src="audio/iphone_hangup.mp3" type="audio/mpeg">
+</audio>
+
+<div class="participants" style="display: none;"></div>
