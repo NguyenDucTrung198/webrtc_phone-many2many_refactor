@@ -38,7 +38,7 @@ jspm_packages
 package-lock.json
 
 
-static/bower_components
+# static/bower_components
 
 dist/
 
@@ -85,5 +85,5 @@ Thumbs.db
 
 node_modules
 package-lock.json
-.env
+# .env
 
